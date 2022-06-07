@@ -3,7 +3,7 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "castle.png", width: 100, alt: "navbar" %>
     <% end %>
-
+    <h3>CASTLEBnB</h3>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,9 +15,6 @@
             <% if policy(Castle).create? %>
               <%= link_to "Ajoutez un Château", new_castle_path, class: "nav-link button" %>
             <% end %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "marcel.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

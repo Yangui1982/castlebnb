@@ -1,3 +1,10 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  opacity: 1;
+  z-index: 99;
+}
+
 .navbar-brand {
   font-size:large;
   font-family: Roboto;
@@ -9,7 +16,7 @@
 .navbar-lewagon {
   height: 100px;
   justify-content: space-between;
-  background: white;
+  background: #FEF6E4;
   border-bottom: 1px solid grey;
 }
 

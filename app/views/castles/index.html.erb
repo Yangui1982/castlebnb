@@ -12,22 +12,32 @@
     <h1>Les Châteaux</h1>
   </div>
   <br>
-    <ul>
-      <div class="lists-castle">
-        <% @castles.each do |castle| %>
-          <li>
-            <div class="card-category card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= castle.photo.attached? ? cl_image_path(castle.photo.key) : asset_path('Cinderella_Castle1.jpg') %>)">
-              <h2 class="categorie"><%= link_to castle.name, castle, class: 'castle-name' %></h2>
-              <% if policy(castle).destroy? %>
-                <%= link_to list_path(list), class: 'trash',
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } do%>
-                    <i class="fa-regular fa-trash-can"></i>
-                    <% end %>
+  <div class="lists-castle">
+    <% @castles.each do |castle| %>
+      <div class="castle-card">
+        <div class="card-category card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= castle.photo.attached? ? cl_image_path(castle.photo.key) : asset_path('Cinderella_Castle1.jpg') %>)"></div>
+        <div class="castle-card-content">
+          <div class="castle-card-title">
+            <h2><%= castle.name%></h2>
+          </div>
+          <div class="flex ms-3">
+            <p> Prix/Nuit : <%= castle.price %> € </p>
+          </div>
+        </div>
+        <div class="castle-card-actions">
+            <%= link_to 'More info', castle_path(castle) %>
+            <% if policy(castle).update? %>
+              <%= link_to 'Edit', edit_castle_path(castle), class: 'backlink' %>
+            <% end %>
+            <% if policy(castle).destroy? %>
+              <%= link_to castle_path(castle), class: 'trash',
+                method: :delete,
+                data: { confirm: "Are you sure?" } do%>
+                <i class="fa-regular fa-trash-can"></i>
+                <% end %>
               <% end %>
-            </div>
-          </li>
-        <% end  %>
+        </div>
       </div>
-    </ul>
+    <% end  %>
+  </div>
 </div>
