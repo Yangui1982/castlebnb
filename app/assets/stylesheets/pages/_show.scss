@@ -1,0 +1,135 @@
+@import "home";
+@import "index";
+
+body {
+  background-color: white;
+}
+
+.card-trip {
+  object-position: center;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 800px
+}
+
+.card-trip > img {
+
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+
+}
+
+.card-trip-infos .card-trip-user {
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.add {
+  margin-left: 195px;
+  margin-top: 30px;
+  color: whitesmoke;
+  border-radius: 50px;
+  background-color: #E45858;
+  text-align: center;
+  height: 40px;
+  width: 200px;
+  padding-top: 8px;
+
+}
+
+.info p {
+  padding-left: 10px;
+}
+
+.info a {
+  padding-left: 310px;
+  color: black;
+
+}
+
+.castle {
+  border-radius: 10px;
+  background-color: #FEF6E4;
+  padding: 30px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.castle h1 {
+  text-align: center;
+}
+
+.castle p {
+  text-align: justify;
+}
+
+
+
+.booking {
+  display: flex;
+  justify-content: center;
+}
+
+.book {
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 50px;
+  background-color: #E45858;
+  height: 40px;
+  width: 100px;
+  padding-top: 8px;
+}
+
+.booklink {
+  border-radius: 50px;
+  background-color: #E45858;
+  text-align: center;
+  height: 40px;
+  width: 150px;
+  border: none;
+  color: whitesmoke;
+}
+
+.choice {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.container-simple-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.link {
+  border-radius: 50px;
+  background-color: #E45858;
+  text-align: center;
+  height: 25px;
+  width: 120px;
+  border: none;
+  color: whitesmoke;
+}

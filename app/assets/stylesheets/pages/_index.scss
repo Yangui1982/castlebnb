@@ -53,6 +53,7 @@ h2 {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
   border-radius: 8px;
   padding-top: 5px;
+  height: 400px;
 }
 
 
@@ -80,7 +81,7 @@ a {
 .card-category {
   margin-left: 5px;
   margin-right: 5px;
-  height: 180px;
+  height: 200px;
   background-position: center;
   background-size: cover;
   border-radius: 8px;
@@ -88,7 +89,6 @@ a {
 
 .castle-card-content {
   padding: 24px;
-  background-color:  #F8F9FA;
 }
 
 .global {
@@ -101,4 +101,23 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 64px;
+}
+
+.push {
+  border-radius: 50px;
+  background-color: #E45858;
+  text-align: center;
+  height: 25px;
+  width: 120px;
+  border: none;
+  color: whitesmoke;
+  position: absolute;
+  bottom: 10px;
+  left: 10px
+}
+
+.price {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
 }

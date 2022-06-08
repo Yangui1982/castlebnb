@@ -31,6 +31,12 @@ class CastlesController < ApplicationController
   end
 
   def show
+    @reviews = []
+    @castle.reviews.each do |review|
+      @reviews << Review.find_by(id: review)
+    end
+    @booking = Booking.new
+    authorize @booking
     authorize @castle
   end
 

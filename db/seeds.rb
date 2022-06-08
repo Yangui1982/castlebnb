@@ -14,12 +14,14 @@ User.destroy_all
 User.create!(
   email: 'admin@admin.com',
   password: 'azerty',
+  nickname: 'admin',
   admin: true
 )
 
 user1 = User.create!(
   email: 'marcel.patulacci@gmail.com',
-  password: 'azerty'
+  password: 'azerty',
+  nickname: 'marcelou_du_13'
 )
 
 4.times do
