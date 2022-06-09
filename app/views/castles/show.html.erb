@@ -1,7 +1,5 @@
 <br>
 <br>
-
-
 <div class="container castle">
   <div class="card-trip">
     <% if @castle.photo.attached? %>
@@ -23,29 +21,46 @@
     </div>
   </div>
 </div>
-
 <div class="reviews">
+  <h3>Commentaires :</h3>
+  <% if @reviews.empty? %>
+    <small><em class="text-muted">Soyez le premier à laisser un commentaire!</em></small>
+  <% end %>
   <% @reviews.each do |review|  %>
-    <p> <i class="fa-solid fa-quote-left"> </i> <%= review.comment %> - note : <%= review.rating %>/5 <em>by <%= review.user.nickname %></em></p>
+    <% review.rating.times do %>
+      <i class="fas fa-star star-yellow"></i>
+    <% end %>
+    <p> <i class="fa-solid fa-quote-left"> </i> <%= review.comment %> <i class="fa-solid fa-circle", style="font-size: 5px; color: grey"></i> <em>par <%= review.user.nickname %>
+        <i class="fa-solid fa-circle", style="font-size: 5px; color: grey"></i> <small><em><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></p>
   <% end %>
 </div>
-
 <div class="container choice">
   <div class="back">
       <%= link_to 'Retour', castles_path, class: 'link' %>
   </div>
-
   <% if policy(@castle).update? %>
   <div class="back">
     <%= link_to 'Modifier', edit_castle_path, class: 'link' %>
   </div>
   <% end %>
-
-  <div class="back">
-    <%= link_to 'Avis', new_castle_review_path(@castle), class: 'link' %>
+</div>
+<div class="container new">
+  <div class="container title">
+    <h1>Ajoutez un commentaire</h1>
+  </div>
+  <div class="container form">
+    <%= simple_form_for [@castle, @review] do |f| %>
+      <%= f.input :comment, label: "commentaire" %>
+      <%= f.input :rating, as: :hidden  %>
+        <div class="my-3">
+          <% Review::AUTHORIZED_RATINGS.each do |index| %>
+            <i id="<%= index %>" class="review-rating far fa-star"></i>
+          <% end %>
+        </div>
+      <%= f.submit 'Commentez', class:'link' %>
+    <% end %>
   </div>
 </div>
-
 <div class="container-simple-form">
   <%= simple_form_for([@castle,@booking]) do |f| %>
       <%= f.input :start_date, label: 'Date de début du séjour :' %>

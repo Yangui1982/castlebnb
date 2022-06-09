@@ -31,6 +31,7 @@ class CastlesController < ApplicationController
   end
 
   def show
+    @review = Review.new(castle: @castle)
     @reviews = []
     @castle.reviews.each do |review|
       @reviews << Review.find_by(id: review)
