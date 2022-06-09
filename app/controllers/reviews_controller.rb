@@ -19,10 +19,6 @@ class ReviewsController < ApplicationController
     authorize @review
   end
 
-  def edit
-    authorize @review
-  end
-
   def update
     @review.update(review_params)
     redirect_to castle_path(@review.castle)

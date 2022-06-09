@@ -26,7 +26,7 @@
 
 <div class="reviews">
   <% @reviews.each do |review|  %>
-    <p> <%= current_user.nickname %> | <%= review.comment %> - note : <%= review.rating %>/5</p>
+    <p> <i class="fa-solid fa-quote-left"> </i> <%= review.comment %> - note : <%= review.rating %>/5 <em>by <%= review.user.nickname %></em></p>
   <% end %>
 </div>
 
@@ -37,12 +37,12 @@
 
   <% if policy(@castle).update? %>
   <div class="back">
-  <%= link_to 'Modifier', edit_castle_path, class: 'link' %>
+    <%= link_to 'Modifier', edit_castle_path, class: 'link' %>
   </div>
   <% end %>
 
   <div class="back">
-  <%= link_to 'Avis', new_castle_review_path(@castle), class: 'link' %>
+    <%= link_to 'Avis', new_castle_review_path(@castle), class: 'link' %>
   </div>
 </div>
 
