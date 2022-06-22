@@ -17,7 +17,11 @@
       <div class="cost">
         <h2 class="card-trip-pricing"><%= @castle.price %> € par nuit</h2>
       </div>
-  </div>
+    <% if policy(@castle).update? %>
+      <div class="back">
+          <%= link_to 'Modifier', edit_castle_path, class: 'link' %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
@@ -32,17 +36,15 @@
     <% end %>
     <p> <i class="fa-solid fa-quote-left"> </i> <%= review.comment %> <i class="fa-solid fa-circle", style="font-size: 5px; color: grey"></i> <em>par <%= review.user.nickname %>
         <i class="fa-solid fa-circle", style="font-size: 5px; color: grey"></i> <small><em><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></p>
+    <% if policy(@review).destroy? %>
+      <%= link_to castle_path(@review.castle), class: 'trash',
+        method: :delete,
+        data: { confirm: "Are you sure?" } do%>
+        <i class="fa-regular fa-trash-can"></i>
+        <% end %>
+    <% end %>
   <% end %>
-</div>
-<div class="container choice">
-  <div class="back">
-      <%= link_to 'Retour', castles_path, class: 'link' %>
-  </div>
-  <% if policy(@castle).update? %>
-  <div class="back">
-    <%= link_to 'Modifier', edit_castle_path, class: 'link' %>
-  </div>
-  <% end %>
+
 </div>
 <div class="container new">
   <div class="container title">
@@ -61,6 +63,11 @@
     <% end %>
   </div>
 </div>
+<br>
+<br>
+<div class="container title">
+  <h1>Réservez votre séjour !</h1>
+</div>
 <div class="container-simple-form">
   <%= simple_form_for([@castle,@booking]) do |f| %>
       <%= f.input :start_date, label: 'Date de début du séjour :' %>
@@ -69,3 +76,6 @@
   <% end %>
 </div>
 <h2 id="Réservez!"></h2>
+<div class="back">
+      <%= link_to 'Retour', castles_path, class: 'link' %>
+  </div>
